@@ -73,7 +73,3 @@ tasks.named('test') {
   - 개발자가 만든 기능 보호
 
 ### Controller 테스트 코드 작성하기
-
-#### @SpringBootApplication
-
-- 스프링 부트의 자동 설정, 스프링 Bean 읽기와 생성
