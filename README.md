@@ -41,6 +41,7 @@
     - 📛 Rename: 파일 이름 변경
     - 🔀 Merge: 다른 브랜치와의 충돌 해결 후 Merge
     - ♻️ Refactor: 전면 수정
+    - 📝 Docs: README.md 등 필기한 마크다운 파일 수정 및 등록
 - ex)
   - Feat: 6주차 과제 및 실습 코드
   - Style: 4주차 과제 index.html 문법 오류 수정
