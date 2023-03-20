@@ -8,6 +8,8 @@
 
 **build.gradle 내용이 책과 많이 달라져서 따로 조사하여 정리하겠습니다.**
 
+> 참고로 저는 스프링 부트 3.0.4 가장 최신 버전으로 사용하고 있답니다!
+
 전체 기본 build.gradle
 
 ```gradle
@@ -72,4 +74,28 @@ tasks.named('test') {
   - 빠른 피드백 가능
   - 개발자가 만든 기능 보호
 
+### Controller API 작성하기
+
+> 애노테이션 위주로 정리하였습니다. 코드는 파일 참고!
+
+- @RestController : 컨트롤러를 JSON을 반환하는 컨트롤러로 만들어 줌.
+
+  - @ResponseBody + @Controller
+
+- @GetMapping : Get 메서드
+
 ### Controller 테스트 코드 작성하기
+
+> 책에서는 JUnit4로, 저는 최신 버전인 JUnit5로 테스트 코드를 작성하여 문법의 차이부터 새로운 애노테이션들을 정리하였습니다.
+
+```java
+@ExtendWith(SpringExtension.class)  // JUnit5에서는 RunWith가 ExtendWith로 변경됨. - 생략 가능
+@WebMvcTest(controllers = HelloController.class)
+class HelloControllerTest { ... }
+```
+
+- @ExtendWith(SpringExtension.class) : JUnit5에서는 RunWith가 ExtendWith로 변경되었습니다.
+  - 참고로 스프링 부트에서 제공하는 모든 테스트용 애노테이션에 meta 애노테이션으로 적용되어 생략이 가능하다고 합니다~!
+- @WebMvcTest(controllers = HelloController.class) : 여러 스프링 어노테이션 중 Web(Spring MVC)에 집중할 수 있는 애노테이션입니다. (여기서는 컨트롤러만 사용하기 때문에 선언하고 사용해줌.)
+  - JUnit5에서는 @SpringBootTest 애노테이션을 많이 사용하는데 <br>
+    => 이는 통합 테스트에서 주로 사용합니다. (무겁고 시간이 오래 걸림.) 참고로 둘이 같이 쓰면 오류가 발생합니다.
