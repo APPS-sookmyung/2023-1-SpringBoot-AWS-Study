@@ -43,11 +43,11 @@ public class HelloControllerTest {
 
     @Test
     public void first_Assignment가_리턴된다() throws Exception{
-        String assignment = "assignment";
+        String assignment = "first-assignment";
 
         mvc.perform(get("/hello/assignment"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("first-assignment"));
+                .andExpect(content().string(assignment));
     }
 
 }
