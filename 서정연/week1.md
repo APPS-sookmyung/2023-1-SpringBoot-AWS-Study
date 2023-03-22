@@ -137,7 +137,7 @@
    2. `./gradlew wrapper --gradle-version 4.10.2` 입력
    3. gradle/wrapper/gradle-wrapper.properties 파일에서 버전을 확인
 
-   ### 4. HelloController 롬복으로 리팩토링
+   ## 4. HelloController 롬복으로 리팩토링
    ## 4-1. HelloController에도 새로 만든 ResponseDto 사용하도록 코드 추가
    - 코드 설명
      - @RequestParam
