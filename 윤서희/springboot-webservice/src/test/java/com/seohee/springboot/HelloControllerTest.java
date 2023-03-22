@@ -21,10 +21,10 @@ public class HelloControllerTest {
     private MockMvc mvc; // MVC 테스트의 시작점
 
     @Test
-    public void hello가_리턴된다() throws Exception {
-        String hello = "hello";
+    public void assignment가_리턴된다() throws Exception {
+        String hello = "first-assignment";
 
-        mvc.perform(get("/hello")) // MockMvc를 통해 /hello 주소로 HTTP GET 요청
+        mvc.perform(get("/hello/assignment")) // MockMvc를 통해 /hello/assignment 주소로 HTTP GET 요청
                 .andExpect(status().isOk()) // mvc.perform의 결과 검증 + HTTP Header의 Status 검증
                 .andExpect(content().string(hello)); // mvc.perform의 결과를 검증
     }
