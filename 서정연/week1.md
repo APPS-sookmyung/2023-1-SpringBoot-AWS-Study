@@ -71,8 +71,11 @@
     - 테스트 진행 시 JUnit에 내장된 실행자 외의 다른 실행자 실행시킴
     - SpringRunner 스프링 실행자 사용
     - 스프링 부트 테스트와 JUnit 사이에 연결자 역할 함
-  - @WebMvcTest - Web(Spring MVC)에 집중 - @Controller, @ControllerAdvice 등 사용
-    -@Autowired - 스프링이 관리하는 빈을 주입받음
+  - @WebMvcTest 
+    - Web(Spring MVC)에 집중
+    - @Controller, @ControllerAdvice 등 사용
+  - @Autowired
+    - 스프링이 관리하는 빈을 주입받음
   - private MockMvc mvc
     - 웹 API 테스트 시 사용
     - 스프링 MVC 테스트의 시작점
