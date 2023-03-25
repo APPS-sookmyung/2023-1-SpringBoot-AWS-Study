@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -100,5 +101,26 @@ class PostsApiControllerTest {
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
+    }
+
+    @Test
+    public void Post_삭제() throws Exception {
+        // given
+        Posts savedPost = postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
+
+        Long id = savedPost.getId();
+
+        String url = "http://localhost:" + port + "/api/v1/posts/" + id;
+
+        // when
+        ResponseEntity<Void> result = restTemplate.exchange(url, HttpMethod.DELETE, HttpEntity.EMPTY, Void.class);
+
+        // then
+        assertThat(result.getStatusCode()).isEqualTo(OK);
+        assertThat(postsRepository.findById(id)).isEmpty();
     }
 }
