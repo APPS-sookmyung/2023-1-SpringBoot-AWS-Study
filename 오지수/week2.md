@@ -63,3 +63,24 @@ JPA를 쓰기 위해선? **RDB와 DB 모두** 이해해야 함
 ---
 
 ### 3.2 프로젝트에 Spring Data JPA 적용하기
+
+#### 애노테이션 위주 정리
+
+- @Entity: 테이블과 링크될 클래스임을 나타냄.
+- @Id : 해당 테이블의 PK 필드를 나타냄.
+- @GeneratedValue : PK의 생성 규칙을 나타냄
+  - strategy = GenerationType.IDENTITY <br>
+    auto_increment
+- @LocalServerPort : 테스트에 포트 번호 주입
+
+### JPA Auditing
+
+- BaseTimeEntity 클래스를 사용하기.
+
+#### 애노테이션
+
+- @MappedSuperclass: JPA Entity 클래스들이 BaseTimeEntity를 상속할 경우 필드들도 칼럼으로 인식함.
+- @EntityListeners(AuditingEntityListener.class) : BaseTimeEntity 클래스에 Auditing 기능을 포함시킴.
+- @CreatedDate: Entity가 생성되어 저장될 때 시간이 자동 저장됨.
+- @LastModifiedDate: 조회한 Entity의 값을 변경할 때 시간이 자동 저장됨.
+- @EnableJpaAuditing: JPA Auditing 활성화. (Main Application 위에 작성하기!)
