@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Getter //lombok annotation
 @NoArgsConstructor
 @Entity // JPA annotation
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

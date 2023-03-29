@@ -99,6 +99,9 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
 
+
+    // 2주차 과제
+    // 삭제 테스트
     @Test
     public void Posts_삭제된다() throws Exception{
         //given
