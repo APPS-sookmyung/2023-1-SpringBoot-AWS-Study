@@ -32,6 +32,8 @@ repositories {
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.projectlombok:lombok:')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa') // JPA 관련 라이브러리 버전 관리
+    implementation('com.h2database:h2') // 인메모리 관계형 데이터베이스
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 
 //    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
