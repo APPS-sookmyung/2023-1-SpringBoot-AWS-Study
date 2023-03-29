@@ -1,6 +1,7 @@
 package com.example.SpringBootAWS.domain.posts;
 
 //import com.jojoldu.book.springboot.domain.BaseTimeEntity;
+import com.example.SpringBootAWS.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts /*extends BaseTimeEntity*/ {
+public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
