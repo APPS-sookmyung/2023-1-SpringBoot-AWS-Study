@@ -2,7 +2,6 @@ package com.jojoldu.book.springboot.web;
 
 import com.jojoldu.book.springboot.domain.posts.Posts;
 import com.jojoldu.book.springboot.domain.posts.PostsRepository;
-import com.jojoldu.book.springboot.service.posts.PostsService;
 import com.jojoldu.book.springboot.web.dto.PostsSaveRequestDto;
 import com.jojoldu.book.springboot.web.dto.PostsUpdateRequestDto;
 import org.junit.After;
@@ -19,9 +18,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-import java.util.Optional;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -35,9 +33,6 @@ public class PostsApiControllerTest {
 
     @Autowired
     private PostsRepository postsRepository;
-
-    @Autowired
-    private PostsService postsService;
 
     @After
     public void tearDown() throws Exception {
@@ -102,26 +97,54 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
 
+
+//    @Test
+//    public void Posts_삭제된다() throws Exception {
+//        // given
+//        Posts savedPosts = postsRepository.save(Posts.builder()
+//                .title("title")
+//                .content("content")
+//                .author("author")
+//                .build());
+//
+//        Long updateId = savedPosts.getId();
+//        String url = "http://localhost:" + port + "/api/v1/posts" + updateId;
+//
+//        //when
+//        ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE,
+//                null, Void.class);
+//        // 삭제는 요청하는 Entity 도 없고 반환값도 없음
+//
+//        //then
+//        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+//        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+//
+//
+//        List<Posts> deleted = postsRepository.findAll();
+//        assertThat(deleted).isEmpty();
+//    }
+
     @Test
-    public void Posts_삭제된다() throws Exception{
-        // given
+    public void Posts_삭제된다() throws Exception {
+        //given
         Posts savedPosts = postsRepository.save(Posts.builder()
                 .title("title")
                 .content("content")
                 .author("author")
                 .build());
 
-        Long deletedId = savedPosts.getId();
+        Long updateId = savedPosts.getId();
+        String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
 
         //when
-        postsService.delete(deletedId);
-        Optional<Posts> deletedPost = postsRepository.findById(deletedId);
+        ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE,
+                HttpEntity.EMPTY, Void.class);
 
         //then
-        if(deletedPost.isPresent()){
-            System.out.println("데이터 존재");
-        }else{
-            System.out.println("데이터 없음");
-        }
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        List<Posts> deleted = postsRepository.findAll();
+        assertThat(deleted).isEmpty();
+
     }
 }
