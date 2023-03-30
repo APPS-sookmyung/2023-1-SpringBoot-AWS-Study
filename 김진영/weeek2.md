@@ -152,14 +152,23 @@ public class PostsRepositoryTest {
         ```java
             //PostsApiController.java 
             @DeleteMapping("/api/v1/posts/{id}")
-            public PostsResponseDto findById2 (@PathVariable Long id){
-                return postsService.findById(id);
+            public void delete (@PathVariable Long id){
+                postsService.delete(id);
+            }
+        ```
+    * transactional delete 함수 구현 
+        ```java
+            @Transactional
+            public void delete(Long id){
+                Posts posts=postsRepository.findById(id)
+                        .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
+                postsRepository.delete(posts);
             }
         ```
     * Test 코드 
         ```java
          @Test
-            public void Posts_삭제된다() throws Exception{
+        public void Posts_삭제된다() throws Exception{
             //given
             Posts savedPosts=postsRepository.save(Posts.builder()
                     .title("title")
@@ -172,14 +181,15 @@ public class PostsRepositoryTest {
 
 
             //when
-            //ResponseEntity<Long> responseEntity=restTemplate.delete(url,responseDto);
+            ResponseEntity<Void> responseEntity=restTemplate.exchange(url,HttpMethod.DELETE,HttpEntity.EMPTY,Void.class);
 
             //then
-            //assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-            //assertThat(responseEntity.getBody()).isGreaterThan(0L);
+            assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+
 
             List<Posts> all=postsRepository.findAll();
+            assertThat(all).isEmpty();
 
         }
         ```
-    * *혹시 좀만 더 생각해봐도 괜찮을까요...? 공부를 제대로 안해서 그런가 먼가 막혔네요(ㅜ) 혹시 이렇게 제출하면 과제 미완성일까요? 엄마야 그렇다면 이번에 다시 빡세게 복습해보겠습니다..* 
+    

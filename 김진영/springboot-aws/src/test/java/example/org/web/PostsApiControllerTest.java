@@ -101,19 +101,22 @@ public class PostsApiControllerTest {
                 .content("content")
                 .author("author")
                 .build());
-        Long deleteId= savedPosts.getId();
+        Long deleteId= savedPosts.getId(); //삭제 id
 
         String url="http://localhost:"+port+"/api/v1/posts/"+deleteId;
 
 
         //when
-        //ResponseEntity<Long> responseEntity=restTemplate.delete(url,responseDto);
+        ResponseEntity<Void> responseEntity=restTemplate.exchange(url,HttpMethod.DELETE,HttpEntity.EMPTY,Void.class);
+        //restTempalte.exchange : HTTP의 헤더를 새로 만들 수 있고 어떤 HTTP 메서드도 사용 가능함!
+
 
         //then
-        //assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        //assertThat(responseEntity.getBody()).isGreaterThan(0L);
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+
 
         List<Posts> all=postsRepository.findAll();
+        assertThat(all).isEmpty(); //비었는지 확인
 
     }
 }
