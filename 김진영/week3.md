@@ -21,3 +21,21 @@
     * Mustache.js와 Mustache.java 2가지가 다 있음 -> 하나의 문법으로 클라이언트/서버 템플릿 모두 사용 가능 
 ---
 
+## 기본 페이지 만들기 
+* 머스테치는 스프링 부트에서 공식 지원하는 템플릿 엔진 -> 의존성 하나만 추가하면 끝!
+* url 매핑은 Controller에서 
+    ```java  
+    @Controller
+    public class IndexController {
+        @GetMapping("/")
+        public String index(){
+            return "index"; 
+        }
+    }
+    ```
+* 앞의 경로와 뒤의 파일 확장자는 자동으로 지정됨 
+    * 앞의 경로: src/main/resources/templates 
+    * 뒤의 파일 확장자: .mustache => index 반환 
+     => src/main/resources/templates/index.mustache 로 전환되어 View Resolver가 처리하게 됨 
+---
+
