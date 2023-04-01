@@ -103,15 +103,13 @@ public class PostsApiControllerTest {
                 .author("author")
                 .build());
 
-        postsRepository.save(savedPosts);
         Long id = savedPosts.getId();
 
         String url = "http://localhost:"+port+"/api/v1/delete/"+id;
 
-        HttpEntity<Posts> requestEntity = new HttpEntity<>(savedPosts);
 
         //when
-        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Long.class);
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, HttpEntity.EMPTY, Long.class);
 
         //then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
