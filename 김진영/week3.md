@@ -39,3 +39,18 @@
      => src/main/resources/templates/index.mustache 로 전환되어 View Resolver가 처리하게 됨 
 ---
 
+## 게시글 등록 화면 만들기 
+* 부트스트랩 오픈소스 프론트엔드 라이브러리를 사용.
+    * 부트스트랩, 제이쿼리 등 프론트엔드 라이브러리를 사용할 수 있는 방법 
+        1. 외부 CDN 사용 -> 강의에서는 이 방법을 채택, 실제 서비스에서는 이 방법을 잘 사용하지 않음 
+        2. 직접 라이브러리를 받아서 사용 
+* 부트스트랩과 제이쿼리를 index.mustache에 **레이아웃** 방식으로 추가
+    * 레이아웃 방식: 공통 영역을 별도의 파일로 분리하여 필요한 곳에서 가져다 쓰는 방식 
+* 페이지 로딩 속도 높이기 위해 css는 header, js는 footer에 
+    * HTML은 위에서부터 코드가 실행되기 때문에 head가 다 실행되고 나서 body가 실행됨 
+    * bootstrap.js의 경우 제이쿼리가 꼭 있어야하므로 부트스트랩보다 먼저 호출되도록 코드 작성 -> bootstrap.js가 제이쿼리에 의존 
+* 게시글 등록이 되지 않는 문제 발생 (글이 등록되었습니다 alert가 뜨지 않는 문제)
+    * [해결 참고]("https://github.com/jojoldu/freelec-springboot2-webservice/issues/707")
+    * 폴더를 생성할때 static.js.app으로 생성하지 않고 static/js/app 이런식으로 하였더니 정상 작동하였다. 
+
+---
