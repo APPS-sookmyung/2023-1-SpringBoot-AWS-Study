@@ -1,6 +1,5 @@
 package com.example.SpringBootAWS.domain.posts;
 
-//import com.jojoldu.book.springboot.domain.BaseTimeEntity;
 import com.example.SpringBootAWS.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
@@ -37,6 +36,12 @@ public class Posts extends BaseTimeEntity {
     }
 
     public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+
+    //과제
+    public void delete(String title, String content) {
         this.title = title;
         this.content = content;
     }

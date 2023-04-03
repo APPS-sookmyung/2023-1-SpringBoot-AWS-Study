@@ -2,6 +2,7 @@ package com.example.SpringBootAWS.web;
 
 import com.example.SpringBootAWS.domain.posts.Posts;
 import com.example.SpringBootAWS.domain.posts.PostsRepository;
+import com.example.SpringBootAWS.service.posts.PostsService;
 import com.example.SpringBootAWS.web.dto.PostsSaveRequestDto;
 import com.example.SpringBootAWS.web.dto.PostsUpdateRequestDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -100,4 +101,28 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
+    //과제
+    /*@Test
+    public void Posts_삭제된다() throws Exception {
+        //given : 게시글 하나 저장, builder 패턴으로 Post(Entity) 생성
+        String title = "title";
+        String content = "content";
+        Posts deletedPosts = postsRepository.save(Posts.builder()
+                .title(title)
+                .content(content)
+                .author("author")
+                .build());
+
+        String url = "http://localhost:" + port + "/api/v1/posts";
+
+        //when : 삭제
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, HttpEntity.EMPTY, Long.class);
+
+
+        //then : DB 값 확인
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        List<Posts> deleted = postsRepository.findAll();
+        assertThat(deleted).isEmpty();
+
+    }*/
 }
