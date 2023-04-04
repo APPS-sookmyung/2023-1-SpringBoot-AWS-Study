@@ -119,7 +119,7 @@ public class PostsApiControllerTest {
         HttpEntity<Posts> requestEntity = new HttpEntity<>(savedPosts);
 
         //when
-        ResponseEntity<Long> responseEntity=restTemplate.exchange(url, HttpMethod.DELETE,requestEntity, Long.class);
+        ResponseEntity<Long> responseEntity=restTemplate.exchange(url, HttpMethod.DELETE,requestEntity.EMPTY, Long.class);
 
 
         //then
