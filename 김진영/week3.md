@@ -54,3 +54,24 @@
     * 폴더를 생성할때 static.js.app으로 생성하지 않고 static/js/app 이런식으로 하였더니 정상 작동하였다. 
 
 ---
+
+## 전체 조회 화면 만들기
+* 쿼리 추가
+    ```java
+    package example.org.domain.posts;
+
+    import org.springframework.data.jpa.repository.JpaRepository;
+    import org.springframework.data.jpa.repository.Query;
+
+    import java.util.List;
+
+    public interface PostsRepository extends JpaRepository<Posts,Long> { //JpaRepository<Entity 클래스, PK타입> -> 기본적인 CRUD 메소드 생성
+        @Query("SELECT p FROM Posts p ORDER BY p.id DESC")
+        List<Posts> findAllDesc(); 
+    }
+    ```
+    * SpringDataJpa에서 제공하지 않는 메소드는 위처럼 쿼리로 작성해도 됨 
+    * 위의 코드는 SpringDataJpa에서 제공하는 기본 메소드만으로 해결 가능, but 가독성이 좋아서 사용한 것 
+* Transactional 어노테이션에서 readOnly 속성을 추가하는 것이 안되어서 다음과 같이 글을 참고하여 문제를 해결했다. 속성을 허용하지 않는 Transactional 어노테이션을 사용해서 발생한 문제였다. [해결]("https://velog.io/@be_have98/Spring-Boot-Cannot-resolve-method-readOnly-%EC%98%A4%EB%A5%98")
+
+---
