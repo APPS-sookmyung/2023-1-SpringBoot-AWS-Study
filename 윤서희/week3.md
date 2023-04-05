@@ -52,11 +52,13 @@
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter-thymeleaf</artifactId>
 </dependency>
+````
 * Gradle
-``` java
+```` java
 implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+````
 * 타임리프를 적용할 HTML 문서에 네임 스페이스 추가
-``` html
+```` html
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -67,6 +69,7 @@ implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     <h1 th:text="${name}">Name</h1>
 </body>
 </html>
+````
 
 ### 기본 문법
 #### 기본 기능
