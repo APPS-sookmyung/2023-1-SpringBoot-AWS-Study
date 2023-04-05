@@ -28,9 +28,15 @@ public class PostsApiController {
         return postsService.findById(id);
     }
 
-    //2주차 과제
+//    2주차 과제
+//    @DeleteMapping("/api/v1/posts/{id}")
+//    public void deleteById(@PathVariable Long id) {
+//        postsService.deleteById(id);
+//    }
+
     @DeleteMapping("/api/v1/posts/{id}")
-    public void deleteById(@PathVariable Long id) {
-        postsService.deleteById(id);
+    public Long delete(@PathVariable Long id){
+        postsService.delete(id);
+        return id;
     }
 }
