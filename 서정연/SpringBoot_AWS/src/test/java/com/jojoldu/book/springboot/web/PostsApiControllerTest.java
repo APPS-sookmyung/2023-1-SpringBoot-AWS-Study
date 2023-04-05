@@ -113,11 +113,11 @@ public class PostsApiControllerTest {
 //        //when
 //        ResponseEntity<Void> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE,
 //                null, Void.class);
-//        // 삭제는 요청하는 Entity 도 없고 반환값도 없음
+//
 //
 //        //then
 //        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-//        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+//
 //
 //
 //        List<Posts> deleted = postsRepository.findAll();
