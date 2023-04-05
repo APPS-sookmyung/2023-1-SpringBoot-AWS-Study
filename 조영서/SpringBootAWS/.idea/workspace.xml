@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6732be0f-cfd0-4731-af38-e2bb60b41678" name="변경" comment="변경">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/SpringBootAWS/web/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/app/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/footer.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/header.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/posts-save.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/SpringBootAWS/web/IndexControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/example/SpringBootAWS/domain/posts/PostsRepositoryTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/example/SpringBootAWS/dto/HelloResponseDtoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/example/SpringBootAWS/web/HelloControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/example/SpringBootAWS/web/PostsApiControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/SpringBootAWS/domain/posts/Posts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/SpringBootAWS/domain/posts/Posts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/SpringBootAWS/domain/posts/PostsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/SpringBootAWS/domain/posts/PostsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/SpringBootAWS/service/posts/PostsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/SpringBootAWS/service/posts/PostsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/SpringBootAWS/web/PostsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/SpringBootAWS/web/PostsApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/SpringBootAWS/domain/posts/PostsRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/SpringBootAWS/domain/posts/PostsRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/SpringBootAWS/web/PostsApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/SpringBootAWS/web/PostsApiControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +66,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/git_hub/2023-1-SpringBoot-AWS-Study/조영서/SpringBootAWS/build.gradle",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.PostsRepositoryTest">
