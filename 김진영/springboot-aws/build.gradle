@@ -33,6 +33,13 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 
     implementation('org.projectlombok:lombok')
+
+    //h2 의존성 등록
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('com.h2database:h2')
+
+    //머스테치 의존성 등록
+    implementation('org.springframework.boot:spring-boot-starter-mustache')
 }
 
 test {
