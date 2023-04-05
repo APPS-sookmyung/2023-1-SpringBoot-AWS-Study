@@ -2,12 +2,16 @@ package com.hailey.book.springboot.service.posts;
 
 import com.hailey.book.springboot.domain.posts.Posts;
 import com.hailey.book.springboot.domain.posts.PostsRepository;
+import com.hailey.book.springboot.web.dto.PostsListResponseDto;
 import com.hailey.book.springboot.web.dto.PostsResponseDto;
 import com.hailey.book.springboot.web.dto.PostsSaveRequestDto;
 import com.hailey.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -45,6 +49,13 @@ public class PostService {
         postsRepository.deleteById(posts.getId());
         return  id;
 
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc(){
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 
 
