@@ -33,7 +33,8 @@ public class PostsApiController {
     // 삭제(2주차과제) (1)
     @DeleteMapping("/api/v1/posts/{id}")
     public Long delete(@PathVariable Long id){
-        return postsService.deleteById(id);
+        postsService.delete(id);
+        return id;
     }
 
 }

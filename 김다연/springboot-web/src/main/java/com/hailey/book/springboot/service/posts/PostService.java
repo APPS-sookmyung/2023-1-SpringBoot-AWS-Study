@@ -40,6 +40,7 @@ public class PostService {
         return new PostsResponseDto(entity);
     }
 
+    /*
     // 삭제
     // 2주차과제 (2)
     @Transactional
@@ -48,6 +49,15 @@ public class PostService {
                 .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
         postsRepository.deleteById(posts.getId());
         return  id;
+
+    }
+    */
+
+    @Transactional
+    public void delete (Long id) {
+        Posts posts=postsRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
+        postsRepository.delete(posts); // 지원해주는거 그냥 쓰지 왜만들었지
 
     }
 
