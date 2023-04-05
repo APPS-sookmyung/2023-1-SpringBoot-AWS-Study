@@ -8,4 +8,5 @@ https://velog.io/@haileyyyyy/spring-%EB%A8%B8%EC%8A%A4%ED%85%8C%EC%B9%98%EB%A1%9
 https://velog.io/@haileyyyyy/spring-%ED%83%AC%ED%94%8C%EB%A6%BF-%EC%97%94%EC%A7%84%EC%9D%84-%EC%99%9C%EC%93%B0%EB%8A%94%EA%B0%80
 
 [과제:타임리프 문법 조사해오기]
+https://velog.io/@haileyyyyy/spring-Thymeleaf-%EB%AC%B8%EB%B2%95%EC%9D%84-%EC%A1%B0%EC%82%AC%ED%95%B4%EB%B3%B4%EC%9E%90#-xmlnsth-
   ```
