@@ -1,18 +1,27 @@
 package example.org.web;
 
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import example.org.config.auth.SecurityConfig;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.is;
 
-@RunWith(SpringRunner.class) //테스트 진행시 JUnit에 내장된 실행자 외에 다른 실행자를 실행시킴. 스프링 부트 테스트와 JUnit 사이 연결자 역할
-@WebMvcTest
+@ExtendWith(SpringExtension.class)  // JUnit5에서는 RunWith가 ExtendWith로 변경됨.
+@WebMvcTest(controllers = HelloController.class,
+        excludeFilters = {
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
+                        classes = SecurityConfig.class)
+        })
 public class HelloControllerTest {
     @Autowired //스프링이 관리하는 bean을 주입받음.
     private MockMvc mvc; //웹 API를 테스트할 때 사용. 스프링 MVC 테스트의 시작점.

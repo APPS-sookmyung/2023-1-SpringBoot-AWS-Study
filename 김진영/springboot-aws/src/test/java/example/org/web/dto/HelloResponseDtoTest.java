@@ -1,9 +1,11 @@
 package example.org.web.dto;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@SpringBootTest
 public class HelloResponseDtoTest {
     @Test
     public void lombok_test(){
