@@ -6,4 +6,4 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-resources/application-oauth.properties
+서정연/SpringBoot_AWS/src/main/resources/application-oauth.properties
