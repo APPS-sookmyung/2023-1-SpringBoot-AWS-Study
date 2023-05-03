@@ -10,6 +10,7 @@ import static jakarta.persistence.GenerationType.*;
 
 @Getter
 @Entity
+@Table(name = "users")
 @NoArgsConstructor
 public class User extends BaseTimeEntity {
     @Id
