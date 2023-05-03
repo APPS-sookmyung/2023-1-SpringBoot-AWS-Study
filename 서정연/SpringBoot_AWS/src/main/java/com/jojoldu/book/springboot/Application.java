@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-@EnableJpaAuditing
+// @EnableJpaAuditing 제거 됨!
 @SpringBootApplication
 // 프로젝트 메인 클래스
 public class Application {

@@ -34,6 +34,7 @@ repositories {
 
 // 프로젝트 개발에 필요한 의존성들을 선언하는 곳
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     implementation 'org.projectlombok:lombok'
@@ -42,4 +43,13 @@ dependencies {
     compile('com.h2database:h2')
 
     compile('org.springframework.boot:spring-boot-starter-mustache')
+
+    // 스프링 시큐리티 관련 의존성
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+
+    // spring-session-jdbc 의존성
+    compile('org.springframework.session:spring-session-jdbc')
+
+    // spring-security-test : 스프링 시큐리티 테스트 위한 여러 도구 지원
+    compile('org.springframework.security:spring-security-test')
 }
