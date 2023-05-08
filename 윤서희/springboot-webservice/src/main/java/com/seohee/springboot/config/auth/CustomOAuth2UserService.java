@@ -1,5 +1,4 @@
 package com.seohee.springboot.config.auth;
-
 import com.seohee.springboot.config.auth.dto.OAuthAttributes;
 import com.seohee.springboot.config.auth.dto.SessionUser;
 import com.seohee.springboot.domain.user.User;
@@ -33,12 +32,20 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
                 .getUserInfoEndpoint().getUserNameAttributeName(); // 2
 
         OAuthAttributes attributes = OAuthAttributes.of(registraionId, userNameAttributeName,
-                OAuth2User.getAttributes()); // 3
+                oAuth2User.getAttributes()); // 3
 
         User user = saveOrUpdate(attributes);
         httpSession.setAttribute("user", new SessionUser(user)); // 4
-        return new DefaultOAuth2User(Collections.selection(new SimpleGrantedAuthority(user.getRoleKey())),
+        return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
                 attributes.getAttributes(),
                 attributes.getNameAttributeKey());
+    }
+
+    private User saveOrUpdate(OAuthAttributes attributes) {
+        User user = userRepository.findByEmail(attributes.getEmail())
+                .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
+                .orElse(attributes.toEntity());
+
+        return userRepository.save(user);
     }
 }
