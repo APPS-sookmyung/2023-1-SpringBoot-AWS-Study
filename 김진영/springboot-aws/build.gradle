@@ -1,5 +1,4 @@
-
-/*buildscript{
+buildscript{
     ext{
         springBootVersion='2.1.7.RELEASE'
     }
@@ -38,11 +37,12 @@ dependencies {
     //h2 의존성 등록
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('com.h2database:h2')
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     runtimeOnly 'com.h2database:h2'
 
     testImplementation 'org.springframework.security:spring-security-test'
-    implementation (group: 'org.springframework.security', name: 'spring-security-config', version: '5.7.7' )
-    //implementation('org.springframework.security:spring-security-test')
+    //implementation (group: 'org.springframework.security', name: 'spring-security-config', version: '5.7.7' )
+    implementation('org.springframework.security:spring-security-test')
 
     //머스테치 의존성 등록
     implementation('org.springframework.boot:spring-boot-starter-mustache')
@@ -58,8 +58,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
-}*/
+}
 //버전을 갈아엎었습니다... ^^
+/*
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.0.4'
@@ -92,4 +93,4 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-}
+}*/

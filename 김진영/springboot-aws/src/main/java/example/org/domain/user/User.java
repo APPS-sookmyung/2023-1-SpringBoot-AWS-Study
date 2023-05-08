@@ -1,21 +1,22 @@
 package example.org.domain.user;
 
 import example.org.domain.BaseTimeEntity;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import static jakarta.persistence.GenerationType.IDENTITY;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Getter
+@Table(name="users")
 @Entity
-@Table(name = "users")
 @NoArgsConstructor
 public class User extends BaseTimeEntity {
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)

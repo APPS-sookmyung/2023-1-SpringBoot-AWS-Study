@@ -2,13 +2,14 @@ package example.org.web;
 
 
 import example.org.config.auth.SecurityConfig;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -16,7 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.is;
 
-@ExtendWith(SpringExtension.class)  // JUnit5에서는 RunWith가 ExtendWith로 변경됨.
+@RunWith(SpringRunner.class)
 @WebMvcTest(controllers = HelloController.class,
         excludeFilters = {
                 @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
@@ -35,6 +36,7 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello)); //mvc.perform의 결과를 검증. 응답 본문 내용 검증. Controller에서 "hello"를 리턴하기 위해 이 값이 맞는지 검증.
     }
 
+    @WithMockUser(roles = "USER")
     @Test
     public void helloDto가_리턴된다() throws Exception{
         String name="hello";
@@ -49,6 +51,7 @@ public class HelloControllerTest {
                 .andExpect(jsonPath("$.amount",is(amount)));
     }
 
+    @WithMockUser(roles = "USER")
     @Test
     public void assignment가_리턴된다() throws Exception{
         String assign="first-assignment";

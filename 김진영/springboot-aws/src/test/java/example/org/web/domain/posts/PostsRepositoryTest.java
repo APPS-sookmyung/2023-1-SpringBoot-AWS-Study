@@ -3,11 +3,11 @@ package example.org.web.domain.posts;
 import example.org.domain.posts.Posts;
 import example.org.domain.posts.PostsRepository;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;

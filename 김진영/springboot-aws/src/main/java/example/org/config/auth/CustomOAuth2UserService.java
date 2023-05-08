@@ -1,11 +1,11 @@
 package example.org.config.auth;
 
-
+/*
 import example.org.config.auth.dto.OAuthAttributes;
 import example.org.config.auth.dto.SessionUser;
 import example.org.domain.user.User;
 import example.org.domain.user.UserRepository;
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -56,8 +56,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         return userRepository.save(user);
     }
-}
-/*
+}*/
+
 import example.org.config.auth.dto.OAuthAttributes;
 import example.org.config.auth.dto.SessionUser;
 import example.org.domain.user.User;
@@ -72,7 +72,7 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 
 @RequiredArgsConstructor
@@ -106,4 +106,4 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         return userRepository.save(user);
     }
 
-}*/
+}

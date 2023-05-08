@@ -1,5 +1,6 @@
 package example.org.web;
 
+import example.org.config.auth.LoginUser;
 import example.org.config.auth.dto.SessionUser;
 import example.org.service.posts.PostsService;
 import example.org.web.dto.PostsResponseDto;
@@ -9,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
@@ -18,11 +19,12 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model){ //Model: 서버 템플릿 엔진에서 사용할 수 있는 객체를 저장 가능
+    public String index(Model model, @LoginUser SessionUser user){ //Model: 서버 템플릿 엔진에서 사용할 수 있는 객체를 저장 가능
         model.addAttribute("posts",postsService.findAllDesc()); //findAllDesc()에서 가져온 결과를 posts로 index.mustache에 전달
-        SessionUser user=(SessionUser) httpSession.getAttribute("user");
+        //SessionUser user=(SessionUser) httpSession.getAttribute("user");
         if(user!=null){
-            model.addAttribute("userName",user.getName());
+            model.addAttribute("memberName",user.getName());
+            //chap5.3 기존의 userName 을 memberName으로 변경 : Windows에서 userName 충돌이 일어남
         }
         return "index";
     }
