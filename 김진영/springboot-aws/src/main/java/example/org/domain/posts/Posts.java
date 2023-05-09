@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Getter //Lombok 어노테이션 , 클래스 내 모든 필드의 Getter 메소드를 자동 생성
 @NoArgsConstructor //Lombok 어노테이션 , 기본 생성자 자동 추가
 @Entity //JPA 어노테이션 , 테이블과 링크될 클래스임을 나타냄
 public class Posts extends BaseTimeEntity { //실제 DB의 테이블과 매칭될 클래스 (=Entity 클래스)
     @Id //PK필드
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //PK 생성 규칙
+    @GeneratedValue(strategy = IDENTITY) //PK 생성 규칙
     private Long id;
 
     //테이블의 칼럼. 굳이 선언하지 않아도 해당 클래스의 필드는 모두 컬럼이 됨
