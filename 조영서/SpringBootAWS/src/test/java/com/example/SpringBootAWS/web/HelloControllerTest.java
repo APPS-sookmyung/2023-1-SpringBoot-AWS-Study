@@ -1,4 +1,4 @@
-package com.example.SpringBootAWS;
+package com.example.SpringBootAWS.web;
 
 import com.example.SpringBootAWS.web.HelloController;
 //import com.example.SpringBootAWS.config.auth.SecurityConfig;
