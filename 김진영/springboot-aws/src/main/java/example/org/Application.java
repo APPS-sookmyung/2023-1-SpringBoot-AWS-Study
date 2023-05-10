@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-@EnableJpaAuditing
+//@EnableJpaAuditing가 삭제됨
 @SpringBootApplication //스프링부트의 자동 설정, 스프링 Bean읽기와 생성을 모두 자동으로 설정.
 // 요게 있는 위치부터 설정을 읽어감.(항상 프로젝트 최상단에 위치해야!!)
 public class Application {

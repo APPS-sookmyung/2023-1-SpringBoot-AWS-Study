@@ -2,9 +2,8 @@ package com.seohee.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-@EnableJpaAuditing // JPA Auditing 활성화
+// @EnableJpaAuditing 제거 (Jpa Config에 활성화, @SpringBootApplication과 분리)
 @SpringBootApplication // 항상 최상단에 위치
 public class Application {
     public static void main(String[] args){

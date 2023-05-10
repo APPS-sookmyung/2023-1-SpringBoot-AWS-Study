@@ -5,6 +5,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+## 보안
+application-oauth.properties
+
 ### STS ###
 .apt_generated
 .classpath
