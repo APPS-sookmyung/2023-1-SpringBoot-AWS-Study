@@ -55,3 +55,14 @@
 - Java 8 설치
 - 타임존 변경 : 한국 시간대로
 - 호스트 네임 변경
+---
+## 5주차 과제
+
+### 클라우드 컴퓨팅
+- 컴퓨팅 리소스를 인터넷을 통해 서비스로 사용할 수 있는 주문형 서비스
+- 기업에서 직접 리소스를 조달하거나 구성, 관리할 필요가 없으며 사용한 만큼만 비용을 지불
+
+### EC2, RDS 외의 AWS의 다른 서비스
+- Amazon S3	: 직접적인 S3 on Outposts 사용량에는 모두 일치하는 계정과 버킷 CloudWatch 지표가 있습니다.
+- Amazon Elastic Block Store(Amazon EBS) : Amazon EBS on Outposts의 경우 AWS Outpost를 스냅샷 대상으로 선택하고 S3 on Outpost에 로컬로 저장할 수 있습니다.
+- Amazon Relational Database Service(Amazon RDS) : Amazon RDS 로컬 백업을 사용하여 RDS 백업을 Outpost에 로컬로 저장할 수 있습니다.
