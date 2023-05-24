@@ -37,3 +37,61 @@
 - 반영 시전 즉시 적용으로 선택
 
 3. 바뀐 옵션 정상 적용을 위해 재부팅 진행
+
+### [3] 내 PC에서 RDS에 접속해보기
+
+1. RDS 보안그룹에 본인 PC의 IP 추가
+
+- RDS 세부 정보 페이지 > 보안 그룹
+- EC2에서 사용된 보안그룹과 내 IP를 RDS 보안 그룹 인바운드로 추가
+
+2. 로컬에서 테스트
+
+- 인텔리제이에서 Database Navigator 플러그인 설치
+- Action 검색(Command + Shift + a)으로 데이터베이스 브라우저 실행
+- MySQL 접속 후 RDS 정보 차례로 등록
+- open SQL console > new SQL console > 새로 생성될 콘솔창 이름 저장(cindy-springboot-webservice)
+- 생성된 콘솔창에서 SQL 실행 : `use AWS의 RDS 데이터베이스명;`
+- 쿼리문 선택 후 Execute Statement 버튼 클릭
+- 데이터베이스가 선택된 상태에서 현재의 character_set, collation 설정을 확인 : `show variables like 'c%'`
+- latin 1으로 설정된 collation_database, character_set_database utf8mb4로 직접 변경 :
+
+```
+ALTER DATABASE 데이터베이스명
+CHARACTER SET = 'utf8mb4'
+COLLATE = 'utf8mb4_general_ci'
+```
+
+- 타임존 확인 : `select @@time_zone, now();`
+- 한글명 잘 들어가는지 간단한 테이블 생성과 insert 쿼리 실행(쿼리문 마다 실행)
+
+```
+CREATE TABLE test(
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  content varchar(255) DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+insert into test(content) values ('테스트');
+
+select * from test;
+```
+
+### [4] EC2에서 RDS 접근 확인
+
+- mysql 설치
+
+```
+sudo su
+
+yum localinstall https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+
+yum install mysql-community-server
+
+systemctl start mysqld
+
+systemctl status mysqld
+```
+
+- RDS 접속 : `mysql -u cindy -p -h 데이터베이스 엔드포인트` > 비밀번호 입력
+- 데이터베이스 확인 : `show databases;`
