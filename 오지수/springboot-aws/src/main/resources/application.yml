@@ -1,9 +1,25 @@
 spring:
+
+  # test
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test
+            client-secret: test
+            scope:
+              - profile
+              - email
+  profiles:
+    include: oauth
+
   datasource:
     url: jdbc:h2:tcp://localhost/~/springaws
     username: sa
     password: sa
     driver-class-name: org.h2.Driver
+
   jpa:
     hibernate:
 #      ddl-auto: create
@@ -11,6 +27,11 @@ spring:
       hibernate:
 #        show_sql: true
         format_sql: true
+
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always # SPRING_SESSION Table 생성 에러
 
 logging.level:
   org.hibernate.SQL: debug

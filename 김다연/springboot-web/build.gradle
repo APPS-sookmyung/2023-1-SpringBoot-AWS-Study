@@ -27,17 +27,36 @@ repositories {
     jcenter()
 }
 
+
+
 dependencies {
     //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation('org.springframework.boot:spring-boot-starter-web')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+
     implementation('org.projectlombok:lombok')
+    implementation('org.projectlombok:lombok')
+    compileOnly 'org.projectlombok:lombok'
+    testImplementation 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok'
+//    annotationProcessor('org-projectlombok:lombok')
+//    testAnnotationProcessor('org-projectlombok:lombok')
+
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('com.h2database:h2:')
     implementation('org.springframework.boot:spring-boot-starter-mustache')
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+    implementation('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.springframework.session:spring-session-jdbc')
+    testImplementation("org.springframework.security:spring-security-test")
+    annotationProcessor("org.springframework.security:spring-security-test")
+
 }
+
+
 
 test {
     useJUnitPlatform()
 }
+

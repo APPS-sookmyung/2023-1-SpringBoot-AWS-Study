@@ -8,3 +8,6 @@
 /dataSources.local.xml
 .gradle
 .idea
+
+# oauth ignore 설정 
+application-oauth.properties
