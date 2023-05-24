@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.jojoldu.book.springboot.dto.HelloResponseDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-24T11:20:22" hostname="Seoui-MacBookPro.local" time="0.142">
+<testsuite name="com.jojoldu.book.springboot.dto.HelloResponseDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-24T12:02:09" hostname="Seoui-MacBookPro.local" time="0.142">
   <properties/>
   <testcase name="롬복_기능_테스트" classname="com.jojoldu.book.springboot.dto.HelloResponseDtoTest" time="0.142"/>
   <system-out><![CDATA[]]></system-out>
