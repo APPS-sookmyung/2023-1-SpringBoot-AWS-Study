@@ -37,7 +37,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    implementation 'org.projectlombok:lombok'
+    implementation 'org.projectlombok:lombok:1.18.20'
 
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('com.h2database:h2')
