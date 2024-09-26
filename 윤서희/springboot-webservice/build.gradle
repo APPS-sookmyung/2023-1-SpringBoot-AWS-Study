@@ -44,7 +44,7 @@ dependencies {
     implementation('org.springframework.session:spring-session-jdbc') // spring-session-jdbc 등록
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation('org.springframework.security:spring-security-test') // spring-security-test 추가
-
+    implementation('org.mariadb.jdbc:mariadb-java-client') // MariaDB 드라이버 등록
 //    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
 //    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
